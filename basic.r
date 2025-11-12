@@ -12,3 +12,4 @@ print (a)
 [1] 1
 ls ()
 [1] "a" "b" "c"
+help ("log") #getting help in R 
