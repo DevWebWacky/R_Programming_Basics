@@ -39,3 +39,18 @@ mean(example$AGE)
 #To get summary of all the dataset
 summary(example)
 
+#To check missing variables
+is.na(example)
+sum(is.na(example)) #Tells you the number of missing variables
+example[is.na(example)]<-0 #this command will replace all NA variables with 0, however, you can use whatever value you like.
+
+#EXPLORATORY DATA ANALYSIS AND VISUALISATION
+library(ggplot2)
+ggplot(example, aes(AGE_GROUP)) + geom_histogram(bins = 30)
+ggplot(example, aes(MARITAL.STATUS, EDUCATIONAL.LEVEL, col=AGE_GROUP)) + geom_point()
+
+#T-TEST
+examplea <- filter(example, variable)
+view(examplea)
+t.test(person_age~sex, data=examplea) #It has to be 2 levels before you can perform T-test.
+#You can run the t-test like that without assigning it.
