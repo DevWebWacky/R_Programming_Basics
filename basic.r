@@ -50,7 +50,14 @@ ggplot(example, aes(AGE_GROUP)) + geom_histogram(bins = 30)
 ggplot(example, aes(MARITAL.STATUS, EDUCATIONAL.LEVEL, col=AGE_GROUP)) + geom_point()
 
 #T-TEST
-examplea <- filter(example, variable)
+examplea <- filter(example, variable>=18)
 view(examplea)
 t.test(person_age~sex, data=examplea) #It has to be 2 levels before you can perform T-test.
 #You can run the t-test like that without assigning it.
+
+#Linear Regression
+#Print the full model statistics
+summary(fit)
+fit <- lm(variable~variable2, data=examplea)
+summary(fit)
+ggplot(examplea aes(x=variable, y=variable)) + geom_point() + geom_smooth(method="lm")
